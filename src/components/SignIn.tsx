@@ -42,24 +42,30 @@ export default function SignIn() {
 
   return (
     <Center h={sw >= 770 ? "100vh" : ""} position={"relative"}>
-      <IconButton
-        as={Link}
-        to="/"
-        aria-label="backBtn"
-        icon={<Icon as={ArrowBackIcon} />}
-        borderRadius={"full"}
-        position={"absolute"}
-        top={"16px"}
-        left={"16px"}
-        variant={"ghost"}
-      />
+      <Box className="navHeaderContainer">
+        <Box className="navHeader">
+          <IconButton
+            as={Link}
+            to="/"
+            aria-label="backBtn"
+            icon={<Icon as={ArrowBackIcon} />}
+            borderRadius={"full"}
+            variant={"ghost"}
+          />
+
+          <Text className="navHeaderLabel" fontSize={28}>
+            Signing In
+          </Text>
+        </Box>
+      </Box>
 
       <SimpleGrid
+        mt={16}
         columns={[1, 1, 2]}
         gap={[4, 4, 8]}
         maxW={"800px"}
         mx={"auto"}
-        p={[4, 8]}
+        p={[6, 8]}
       >
         <HStack pt={16}>
           <Image
@@ -79,11 +85,7 @@ export default function SignIn() {
         </HStack>
 
         <Box mt={2}>
-          <Text fontSize={28} fontWeight={800} mb={4}>
-            Signing In
-          </Text>
-
-          <Text>Role</Text>
+          <Text fontWeight={600}>Role</Text>
           <HStack
             mb={4}
             py={"6px"}
@@ -129,7 +131,7 @@ export default function SignIn() {
             </HStack>
           </HStack>
 
-          <Text>Username/E-mail</Text>
+          <Text fontWeight={600}>Username/E-mail</Text>
           <Input
             mb={4}
             className="input"
@@ -140,7 +142,7 @@ export default function SignIn() {
             value={signinData?.username}
           />
 
-          <Text>Password</Text>
+          <Text fontWeight={600}>Password</Text>
           <Input
             mb={4}
             type="password"

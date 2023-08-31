@@ -25,6 +25,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  position: relative;
 }
 
 .btn:active {
@@ -72,4 +73,23 @@ a {
   100% {
     opacity: 1;
   }
+}
+
+.navHeaderContainer {
+  width: 100%;
+  background: #5c698016;
+  backdrop-filter: blur(30px);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.navHeader {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.navHeaderLabel {
+  padding: 0 8px;
+  font-weight: 700;
 }

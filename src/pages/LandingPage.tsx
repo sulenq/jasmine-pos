@@ -1,4 +1,12 @@
-import { Box, Button, HStack, VStack, Text, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  VStack,
+  Text,
+  Image,
+  Center,
+} from "@chakra-ui/react";
 
 // import PwaDownloadBtn from "../components/PwaDownloadBtn";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
@@ -11,42 +19,44 @@ export default function LandingPage() {
 
   return (
     <VStack className="app">
-      <Box w={"100%"} px={[4, 8]}>
-        <HStack w={"100%"} py={4} justify={"space-between"}>
-          <HStack>
-            <Image src={"./logoTransparent.png"} w={"16px"} />
-            {sw >= 580 && (
-              <Text fontWeight={800} fontSize={18} color={"p.500"}>
-                Jasmine POS
-              </Text>
-            )}
-          </HStack>
+      <Center maxW={"350px"} w={"100%"} h={"100vh"} px={[4, 8]}>
+        <VStack w={"100%"} py={4} justify={"space-between"}>
+          <Image src={"./logoTransparent.png"} w={"120px"} />
+          <Text
+            fontWeight={800}
+            fontSize={48}
+            color={"p.500"}
+            lineHeight={"52px"}
+            textAlign={"center"}
+            py={4}
+          >
+            Jasmine POS
+          </Text>
+          <Button
+            as={Link}
+            w={"100%"}
+            to="/signin"
+            colorScheme="bnw"
+            className="bnw"
+            borderRadius={"full"}
+          >
+            SIGN IN
+          </Button>
 
-          <HStack>
-            <ColorModeSwitcher
-              borderRadius={"full"}
-              size={"sm"}
-              fontSize={14}
-            />
-            {/* {sw >= 580 && <PwaDownloadBtn styles={{ variant: "ghost" }} />} */}
+          <Button w={"100%"} borderRadius={"full"} variant={"ghost"}>
+            SIGN UP
+          </Button>
 
-            <Button borderRadius={"full"} size={"sm"} variant={"ghost"}>
-              SIGN UP
-            </Button>
-
-            <Button
-              as={Link}
-              to="/signin"
-              colorScheme="bnw"
-              className="bnw"
-              borderRadius={"full"}
-              size={"sm"}
-            >
-              SIGN IN
-            </Button>
-          </HStack>
-        </HStack>
-      </Box>
+          <ColorModeSwitcher
+            borderRadius={"full"}
+            // size={"sm"}
+            fontSize={14}
+            position={"absolute"}
+            top={"16px"}
+            right={"16px"}
+          />
+        </VStack>
+      </Center>
     </VStack>
   );
 }
