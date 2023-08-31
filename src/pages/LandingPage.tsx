@@ -103,10 +103,10 @@ export default function LandingPage() {
 
           <Text
             fontWeight={600}
-            fontSize={24}
+            fontSize={20}
             // color={"p.500"}
-            opacity={0.7}
-            lineHeight={"20px"}
+            opacity={0.5}
+            lineHeight={"18px"}
             textAlign={"center"}
             mb={8}
           >
