@@ -40,6 +40,9 @@ a {
   outline: none !important;
   border: var(--divider);
 }
+.input::placeholder {
+  opacity: 0.5;
+}
 .input:focus,
 .input:focus-visible {
   box-shadow: none !important;

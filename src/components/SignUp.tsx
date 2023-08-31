@@ -86,7 +86,6 @@ export default function SignUp() {
             mb={4}
             className="input"
             placeholder="Kios Melati"
-            _placeholder={{ opacity: 0.5 }}
             name="shopName"
             onChange={handleInputChange}
             value={signupData?.shopName}
@@ -98,7 +97,6 @@ export default function SignUp() {
             mb={4}
             className="input"
             placeholder="sulenq@email.com"
-            _placeholder={{ opacity: 0.5 }}
             name="email"
             onChange={handleInputChange}
             value={signupData?.email}
@@ -111,7 +109,6 @@ export default function SignUp() {
             type="password"
             className="input"
             placeholder="type your password"
-            _placeholder={{ opacity: 0.5 }}
             name="password"
             onChange={handleInputChange}
             value={signupData?.password}
@@ -124,7 +121,6 @@ export default function SignUp() {
             type="password"
             className="input"
             placeholder="type your password"
-            _placeholder={{ opacity: 0.5 }}
             name="confirmPassword"
             onChange={handleInputChange}
             value={signupData?.confirmPassword}

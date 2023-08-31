@@ -116,6 +116,7 @@ export default function SignIn() {
             </HStack>
 
             <HStack
+              id="cashierRole"
               transition={"0.3s"}
               onClick={() => {
                 setRole("cashier");
@@ -134,23 +135,23 @@ export default function SignIn() {
           </HStack>
 
           <Text fontWeight={600}>Username/E-mail</Text>
+
           <Input
             mb={4}
             className="input"
             placeholder="sulenq or sulenq@email.com"
-            _placeholder={{ opacity: 0.5 }}
             name="username"
             onChange={handleInputChange}
             value={signinData?.username}
           />
 
           <Text fontWeight={600}>Password</Text>
+
           <Input
             mb={4}
             type="password"
             className="input"
             placeholder="type your password"
-            _placeholder={{ opacity: 0.5 }}
             name="password"
             onChange={handleInputChange}
             value={signinData?.password}
