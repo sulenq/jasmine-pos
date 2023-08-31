@@ -92,13 +92,25 @@ export default function LandingPage() {
 
           <Text
             fontWeight={800}
-            fontSize={48}
+            fontSize={58}
             color={"p.500"}
-            lineHeight={"52px"}
+            lineHeight={"58px"}
             textAlign={"center"}
-            py={4}
+            mt={4}
           >
-            Jasmine POS
+            Jasmine
+          </Text>
+
+          <Text
+            fontWeight={600}
+            fontSize={24}
+            // color={"p.500"}
+            opacity={0.7}
+            lineHeight={"20px"}
+            textAlign={"center"}
+            mb={8}
+          >
+            Point of Sale
           </Text>
 
           <Button
