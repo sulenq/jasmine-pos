@@ -1,5 +1,4 @@
 import { extendTheme } from "@chakra-ui/react";
-import { transform } from "typescript";
 
 export const myTheme = extendTheme({
   colors: {
@@ -14,6 +13,18 @@ export const myTheme = extendTheme({
       700: "#2D4FAC",
       800: "#1C368B",
       900: "#112473",
+    },
+    ap: {
+      50: "#5A8CF0",
+      100: "#5A8CF0",
+      200: "#5A8CF0",
+      300: "#5A8CF0",
+      400: "#5A8CF0",
+      500: "#5A8CF0",
+      600: "#5A8CF0",
+      700: "#5A8CF0",
+      800: "#5A8CF0",
+      900: "#5A8CF0",
     },
     bnw: {
       //   50: "#f1f8ff",
@@ -68,6 +79,14 @@ export const myTheme = extendTheme({
     Button: {
       baseStyle: (props: any) => ({
         fontWeight: 700,
+      }),
+    },
+
+    Checkbox: {
+      baseStyle: (props: any) => ({
+        icon: {
+          color: "white",
+        },
       }),
     },
   },

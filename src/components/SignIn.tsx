@@ -11,6 +11,7 @@ import {
   Center,
   IconButton,
   Icon,
+  Checkbox,
 } from "@chakra-ui/react";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -43,7 +44,7 @@ export default function SignIn() {
   return (
     <Center h={sw >= 770 ? "100vh" : ""} position={"relative"}>
       <Box className="navHeaderContainer">
-        <Box className="navHeader">
+        <HStack className="navHeader">
           <IconButton
             as={Link}
             to="/"
@@ -53,21 +54,21 @@ export default function SignIn() {
             variant={"ghost"}
           />
 
-          <Text className="navHeaderLabel" fontSize={28}>
+          <Text className="navHeaderLabel" fontSize={24}>
             Signing In
           </Text>
-        </Box>
+        </HStack>
       </Box>
 
       <SimpleGrid
         mt={16}
         columns={[1, 1, 2]}
         gap={[4, 4, 8]}
-        maxW={"800px"}
+        maxW={"1000px"}
         mx={"auto"}
         p={[6, 8]}
       >
-        <HStack pt={16}>
+        <HStack>
           <Image
             id="adminImg"
             src="./img/admin.png"
@@ -75,6 +76,7 @@ export default function SignIn() {
             transition={"0.3s"}
             display={role === "admin" ? "block" : "none"}
           />
+
           <Image
             id="cashierImg"
             src="./img/cashier.png"
@@ -84,12 +86,12 @@ export default function SignIn() {
           />
         </HStack>
 
-        <Box mt={2}>
+        <Box mt={2} w={"100%"}>
           <Text fontWeight={600}>Role</Text>
           <HStack
             mb={4}
-            py={"6px"}
-            px={1}
+            gap={1}
+            p={1}
             w={"100%"}
             borderRadius={8}
             border={"1px solid var(--divider2)"}
@@ -154,14 +156,19 @@ export default function SignIn() {
             value={signinData?.password}
           />
 
-          <Link to="">
-            <Text fontSize={14} color={"p.500"}>
-              Forgot password?
-            </Text>
-          </Link>
+          <HStack justify={"space-between"} my={2}>
+            <Checkbox colorScheme="ap">
+              <Text fontSize={14}>Remember Me</Text>
+            </Checkbox>
+            <Link to="">
+              <Text fontSize={14} color={"p.500"}>
+                Forgot password?
+              </Text>
+            </Link>
+          </HStack>
 
           <Button
-            className="btn"
+            className="btn bnw"
             w={"100%"}
             colorScheme="bnw"
             borderRadius={"full"}

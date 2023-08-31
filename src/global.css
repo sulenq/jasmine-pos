@@ -15,7 +15,7 @@
   --p800: #1c368b;
   --p900: #112473;
   --divider: #aec1e032;
-  --divider2: #8a94a439;
+  --divider2: #5f6b7f5d;
 }
 
 .app {
@@ -77,11 +77,10 @@ a {
 
 .navHeaderContainer {
   width: 100%;
-  background: #5c698016;
-  backdrop-filter: blur(30px);
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
 }
 .navHeader {
   width: 100%;
@@ -92,4 +91,20 @@ a {
 .navHeaderLabel {
   padding: 0 8px;
   font-weight: 700;
+}
+
+@keyframes slow-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#landingImg img {
+  position: absolute;
 }
