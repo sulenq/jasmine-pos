@@ -1,0 +1,75 @@
+* {
+  font-family: "Source Sans 3", sans-serif !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+:root {
+  --p50: #f1f8ff;
+  --p100: #deedfe;
+  --p200: #bed9fd;
+  --p300: #9cc2fa;
+  --p400: #82adf6;
+  --p500: #5a8cf0;
+  --p600: #416bce;
+  --p700: #2d4fac;
+  --p800: #1c368b;
+  --p900: #112473;
+  --divider: #aec1e032;
+  --divider2: #8a94a439;
+}
+
+.app {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.btn:active {
+  transform: translate(0, 2px);
+}
+
+a {
+  text-decoration: none !important;
+}
+.input {
+  border-radius: 8px !important;
+  outline: none !important;
+  border: var(--divider);
+}
+.input:focus,
+.input:focus-visible {
+  box-shadow: none !important;
+  border: 2px solid var(--p500) !important;
+}
+
+.bnw:hover {
+  color: white !important;
+}
+
+.selectedRole {
+  transition: 0.3s !important;
+  background: var(--p500);
+  width: calc(50% - 8px);
+  height: 34px;
+  border-radius: 6px;
+  position: absolute;
+  top: 4px;
+  z-index: -1;
+}
+.cashier-role {
+  right: 4px;
+}
+.admin-role {
+  left: 4px;
+}
+@keyframes role {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
