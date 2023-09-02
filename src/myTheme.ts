@@ -38,6 +38,9 @@ export const myTheme = extendTheme({
       //   800: "#1C368B",
       //   900: "#112473",
     },
+    b: "#111111",
+    bt: "#333333",
+    wt: "#e8e6e3",
   },
 
   styles: {

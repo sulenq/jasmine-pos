@@ -16,7 +16,6 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { useScreenWidth } from "../utils/utils";
-import { Link } from "react-router-dom";
 
 export default function SignUp() {
   //types
@@ -50,8 +49,9 @@ export default function SignUp() {
       <Box className="navHeaderContainer">
         <HStack className="navHeader">
           <IconButton
-            as={Link}
-            to="/"
+            onClick={() => {
+              window.history.back();
+            }}
             aria-label="backBtn"
             icon={<Icon as={ArrowBackIcon} />}
             borderRadius={"full"}

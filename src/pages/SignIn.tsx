@@ -17,7 +17,8 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { useScreenWidth } from "../utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import NavHeaderContainer from "../components/NavHeaderContainer";
 
 export default function SignIn() {
   //types
@@ -40,25 +41,38 @@ export default function SignIn() {
       [name]: value,
     }));
   };
+  const navigate = useNavigate();
+  const handleSignin = () => {
+    if (role === "admin") {
+      console.log("signing in admin...");
+      navigate("/admin-dashboard");
+    } else if (role === "cashier") {
+      console.log("signing in cashier...");
+      navigate("/cashiering");
+    }
+  };
 
   return (
     <Center h={sw >= 770 ? "100vh" : ""} position={"relative"}>
-      <Box className="navHeaderContainer">
-        <HStack className="navHeader">
-          <IconButton
-            as={Link}
-            to="/"
-            aria-label="backBtn"
-            icon={<Icon as={ArrowBackIcon} />}
-            borderRadius={"full"}
-            variant={"ghost"}
-          />
+      <NavHeaderContainer
+        content={
+          <HStack className="navHeader">
+            <IconButton
+              onClick={() => {
+                window.history.back();
+              }}
+              aria-label="backBtn"
+              icon={<Icon as={ArrowBackIcon} />}
+              borderRadius={"full"}
+              variant={"ghost"}
+            />
 
-          <Text className="navHeaderLabel" fontSize={24}>
-            Signing In
-          </Text>
-        </HStack>
-      </Box>
+            <Text className="navHeaderLabel" fontSize={24}>
+              Signing In
+            </Text>
+          </HStack>
+        }
+      />
 
       <SimpleGrid
         mt={16}
@@ -133,9 +147,7 @@ export default function SignIn() {
               <Text fontSize={14}>CASHIER</Text>
             </HStack>
           </HStack>
-
           <Text fontWeight={600}>Username/E-mail</Text>
-
           <Input
             mb={4}
             className="input"
@@ -144,9 +156,7 @@ export default function SignIn() {
             onChange={handleInputChange}
             value={signinData?.username}
           />
-
           <Text fontWeight={600}>Password</Text>
-
           <Input
             mb={4}
             type="password"
@@ -156,7 +166,6 @@ export default function SignIn() {
             onChange={handleInputChange}
             value={signinData?.password}
           />
-
           <HStack justify={"space-between"} my={2}>
             <Checkbox colorScheme="ap">
               <Text fontSize={14}>Remember Me</Text>
@@ -167,8 +176,8 @@ export default function SignIn() {
               </Text>
             </Link>
           </HStack>
-
           <Button
+            onClick={handleSignin}
             className="btn bnw"
             w={"100%"}
             colorScheme="bnw"
@@ -177,6 +186,12 @@ export default function SignIn() {
           >
             SIGN IN
           </Button>
+          <HStack fontSize={14} gap={1}>
+            <Text>Do not have an account?</Text>
+            <Link to="/signup">
+              <Text color={"p.500"}>sign up here</Text>
+            </Link>
+          </HStack>
         </Box>
       </SimpleGrid>
     </Center>

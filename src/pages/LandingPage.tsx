@@ -140,7 +140,7 @@ export default function LandingPage() {
           <ColorModeSwitcher
             borderRadius={"full"}
             // size={"sm"}
-            fontSize={14}
+            fontSize={20}
             position={"absolute"}
             top={"16px"}
             right={"16px"}

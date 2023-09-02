@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import Cashiering from "./pages/Cashiering";
 
 export const App = () => (
   <ChakraProvider theme={myTheme}>
@@ -14,7 +15,8 @@ export const App = () => (
         <Route path="/" element={<LandingPage />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin-dashboard" element={<Dashboard />} />
+        <Route path="/cashiering" element={<Cashiering />} />
       </Routes>
     </BrowserRouter>
   </ChakraProvider>

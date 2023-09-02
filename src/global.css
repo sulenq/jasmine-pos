@@ -14,7 +14,10 @@
   --p700: #2d4fac;
   --p800: #1c368b;
   --p900: #112473;
-  --divider: #aec1e032;
+  --b: #111111;
+  --bt: #333333;
+  --wt: #e8e6e3;
+  --divider: #8787872e;
   --divider2: #5f6b7f5d;
 }
 
@@ -29,7 +32,7 @@
 }
 
 .btn:active {
-  transform: translate(0, 2px);
+  transform: scale(0.95);
 }
 
 a {
@@ -101,7 +104,7 @@ a {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
   100% {
     transform: translateY(0);
