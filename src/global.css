@@ -44,7 +44,7 @@ a {
   border: var(--divider);
 }
 .input::placeholder {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .input:focus,
 .input:focus-visible {
@@ -86,6 +86,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  /* box-shadow: 0 0 10px 1px #7d7d7d1c; */
   z-index: 99;
 }
 .navHeader {

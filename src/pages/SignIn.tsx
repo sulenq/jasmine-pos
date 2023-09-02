@@ -53,7 +53,7 @@ export default function SignIn() {
   };
 
   return (
-    <Center h={sw >= 770 ? "100vh" : ""} position={"relative"}>
+    <Center h={sw >= 770 ? "100vh" : ""} position={"relative"} className="app">
       <NavHeaderContainer
         content={
           <HStack className="navHeader">
@@ -78,7 +78,7 @@ export default function SignIn() {
         mt={16}
         columns={[1, 1, 2]}
         gap={[4, 4, 8]}
-        maxW={"1000px"}
+        // maxW={"1080px"}
         mx={"auto"}
         p={[6, 8]}
       >
@@ -176,6 +176,7 @@ export default function SignIn() {
               </Text>
             </Link>
           </HStack>
+          
           <Button
             onClick={handleSignin}
             className="btn bnw"
