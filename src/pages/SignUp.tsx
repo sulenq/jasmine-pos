@@ -8,7 +8,6 @@ import {
   Input,
   Box,
   SimpleGrid,
-  Center,
   IconButton,
   Icon,
   FormControl,
@@ -16,6 +15,7 @@ import {
   FormErrorMessage,
   FormHelperText,
   Checkbox,
+  VStack,
 } from "@chakra-ui/react";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -23,6 +23,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useScreenWidth } from "../utils/utils";
 import NavHeaderContainer from "../components/NavHeaderContainer";
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   // types
@@ -48,7 +49,7 @@ export default function SignUp() {
       type: "text",
       label: "E-mail",
       placeholder: "sulenq@email.co.id",
-      hint: "E-mail is for verification and can be use to Sign In",
+      hint: "E-mail is used for verification and can be used to Sign In",
     },
     {
       name: "password",
@@ -83,7 +84,7 @@ export default function SignUp() {
       email: yup
         .string()
         .required("E-mail is required")
-        .email("Input valid e-mail format"),
+        .email("Input a valid e-mail format"),
       password: yup
         .string()
         .required("Password is required")
@@ -103,7 +104,7 @@ export default function SignUp() {
   // }
 
   return (
-    <Center h={sw >= 770 ? "100vh" : ""} position={"relative"} className="app">
+    <VStack h={sw >= 770 ? "100vh" : ""} position={"relative"} className="app">
       <NavHeaderContainer
         content={
           <HStack className="navHeader">
@@ -117,71 +118,94 @@ export default function SignUp() {
               variant={"ghost"}
             />
 
-            <Text className="navHeaderLabel" fontSize={24}>
-              Signing Up
-            </Text>
+            <Text className="navHeaderLabel">Signing Up</Text>
           </HStack>
         }
       />
 
-      <SimpleGrid
-        mt={16}
-        columns={[1, 1, 2]}
-        gap={[4, 4, 8]}
-        // maxW={"1080px"}
-        mx={"auto"}
-        p={[6, 8]}
-      >
-        <Image
-          id="adminImg"
-          src="./img/signup.png"
-          animation={"role 1s"}
-          transition={"0.3s"}
-        />
+      <VStack h={"100%"} justify={"center"} mt={20}>
+        <Text
+          fontWeight={800}
+          fontSize={[32, 42, 48]}
+          textAlign={"center"}
+          px={8}
+          mt={[4, null, 0]}
+          lineHeight={1.1}
+          color={"p.500"}
+        >
+          Let's Register Your Store!
+        </Text>
 
-        <Box w={"100%"}>
-          <form onSubmit={formik.handleSubmit}>
-            {signupForm.map((s, i) => {
-              // @ts-ignore
-              const valid = formik.errors[s?.name];
-              return (
-                <FormControl mb={4} key={i} isInvalid={valid !== undefined}>
-                  <FormLabel fontWeight={600}>{s?.label}</FormLabel>
+        <SimpleGrid
+          columns={[1, 1, 2]}
+          gap={[4, 4, 8]}
+          // maxW={"1080px"}
+          mx={"auto"}
+          p={[6, 8]}
+        >
+          <Image
+            id="adminImg"
+            src="./img/signup.png"
+            animation={"role 1s"}
+            transition={"0.3s"}
+            mb={[4, null, 0]}
+          />
 
-                  <Input
-                    className="input"
-                    name={s?.name}
-                    type={s?.type}
-                    placeholder={s?.placeholder}
-                    onChange={handleForm}
-                  />
+          <Box w={"100%"}>
+            <form onSubmit={formik.handleSubmit}>
+              {signupForm.map((s, i) => {
+                // @ts-ignore
+                const valid = formik.errors[s?.name];
+                return (
+                  <FormControl mb={4} key={i} isInvalid={valid !== undefined}>
+                    <FormLabel fontWeight={600}>{s?.label}</FormLabel>
 
-                  <FormHelperText opacity={0.5}>{s?.hint}</FormHelperText>
+                    <Input
+                      className="input"
+                      name={s?.name}
+                      type={s?.type}
+                      placeholder={s?.placeholder}
+                      onChange={handleForm}
+                    />
 
-                  <FormErrorMessage mt={1} color="red.400" fontSize={14}>
-                    {valid}
-                  </FormErrorMessage>
-                </FormControl>
-              );
-            })}
+                    <FormHelperText opacity={0.5}>{s?.hint}</FormHelperText>
 
-            <Checkbox colorScheme="ap" my={4}>
-              <Text fontSize={14}>Agree to our privacy and policy</Text>
-            </Checkbox>
+                    <FormErrorMessage mt={1} color="red.400" fontSize={14}>
+                      {valid}
+                    </FormErrorMessage>
+                  </FormControl>
+                );
+              })}
 
-            <Button
-              className="btn bnw"
-              type="submit"
-              w={"100%"}
-              colorScheme="bnw"
-              borderRadius={"full"}
-              my={4}
-            >
-              SIGN UP
-            </Button>
-          </form>
-        </Box>
-      </SimpleGrid>
-    </Center>
+              <SimpleGrid my={4} columns={[1, null, 2]}>
+                <Checkbox colorScheme="ap">
+                  <Text fontSize={14}>Agree to our privacy and policy</Text>
+                </Checkbox>
+
+                <Text
+                  as={Link}
+                  color={"p.500"}
+                  mt={[2, null, 0]}
+                  textAlign={["left", null, "right"]}
+                >
+                  See privacy and policy
+                </Text>
+              </SimpleGrid>
+
+              <Button
+                className="btn bnw"
+                type="submit"
+                w={"100%"}
+                colorScheme="bnw"
+                borderRadius={"full"}
+                my={4}
+              >
+                SIGN UP
+              </Button>
+            </form>
+          </Box>
+        </SimpleGrid>
+      </VStack>
+    </VStack>
   );
 }

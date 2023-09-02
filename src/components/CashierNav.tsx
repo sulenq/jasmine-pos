@@ -8,9 +8,10 @@ import {
 } from "@chakra-ui/react";
 import { useScreenWidth } from "../utils/utils";
 
-import PointOfSaleTwoToneIcon from "@mui/icons-material/PointOfSaleTwoTone";
-import ReceiptLongTwoToneIcon from "@mui/icons-material/ReceiptLongTwoTone";
-import PersonOutlineTwoToneIcon from "@mui/icons-material/PersonOutlineTwoTone";
+import LoyaltyOutlinedIcon from "@mui/icons-material/LoyaltyOutlined";
+import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+
 import { Link, useLocation } from "react-router-dom";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 
@@ -26,17 +27,17 @@ export default function CashierNav() {
   const navs = [
     {
       name: "Cashiering",
-      icon: PointOfSaleTwoToneIcon,
+      icon: LoyaltyOutlinedIcon,
       link: "/cashiering",
     },
     {
       name: "Transactions",
-      icon: ReceiptLongTwoToneIcon,
+      icon: ReceiptLongOutlinedIcon,
       link: "/cashier-transactions",
     },
     {
       name: "Profile",
-      icon: PersonOutlineTwoToneIcon,
+      icon: PersonOutlineOutlinedIcon,
       link: "/cashier-profile",
     },
   ];
@@ -75,6 +76,7 @@ export default function CashierNav() {
                     bg: "var(--divider)",
                   }}
                   borderRadius={"full"}
+                  position={"relative"}
                 >
                   <Icon
                     as={nav?.icon}
@@ -85,12 +87,13 @@ export default function CashierNav() {
                         ? "white"
                         : "black"
                     }
-                    fontSize={20}
+                    fontSize={nav?.name === "Cashiering" ? 22 : 20}
                   />
                 </Center>
               </Tooltip>
             );
           })}
+
           <ColorModeSwitcher
             size={"sm"}
             ml={0}
@@ -136,11 +139,12 @@ export default function CashierNav() {
                       ? "w"
                       : "bt"
                   }
-                  fontSize={20}
+                  fontSize={nav?.name === "Cashiering" ? 22 : 20}
                 />
               </Center>
             );
           })}
+
           <ColorModeSwitcher
             size={"sm"}
             ml={0}

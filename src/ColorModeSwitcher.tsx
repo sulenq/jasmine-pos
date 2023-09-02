@@ -7,8 +7,8 @@ import {
   Icon,
 } from "@chakra-ui/react";
 
-import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
-import LightModeTwoToneIcon from "@mui/icons-material/LightModeTwoTone";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">;
 
@@ -26,9 +26,9 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
       onClick={toggleColorMode}
       icon={
         colorMode === "dark" ? (
-          <Icon as={DarkModeTwoToneIcon} fontSize={props?.fontSize} />
+          <Icon as={DarkModeOutlinedIcon} fontSize={props?.fontSize} />
         ) : (
-          <Icon as={LightModeTwoToneIcon} fontSize={props?.fontSize} />
+          <Icon as={LightModeOutlinedIcon} fontSize={props?.fontSize} />
         )
       }
       aria-label={`Switch to ${text} mode`}

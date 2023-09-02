@@ -8,10 +8,10 @@ import {
   Input,
   Box,
   SimpleGrid,
-  Center,
   IconButton,
   Icon,
   Checkbox,
+  VStack,
 } from "@chakra-ui/react";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -19,6 +19,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useScreenWidth } from "../utils/utils";
 import { Link, useNavigate } from "react-router-dom";
 import NavHeaderContainer from "../components/NavHeaderContainer";
+import { ColorModeSwitcher } from "../ColorModeSwitcher";
 
 export default function SignIn() {
   //types
@@ -53,7 +54,7 @@ export default function SignIn() {
   };
 
   return (
-    <Center h={sw >= 770 ? "100vh" : ""} position={"relative"} className="app">
+    <VStack h={sw >= 770 ? "100vh" : ""} position={"relative"} className="app">
       <NavHeaderContainer
         content={
           <HStack className="navHeader">
@@ -67,134 +68,148 @@ export default function SignIn() {
               variant={"ghost"}
             />
 
-            <Text className="navHeaderLabel" fontSize={24}>
-              Signing In
-            </Text>
+            <Text className="navHeaderLabel">Signing In</Text>
+
+            <ColorModeSwitcher borderRadius={"full"} fontSize={20} />
           </HStack>
         }
       />
 
-      <SimpleGrid
-        mt={16}
-        columns={[1, 1, 2]}
-        gap={[4, 4, 8]}
-        // maxW={"1080px"}
-        mx={"auto"}
-        p={[6, 8]}
-      >
-        <HStack>
-          <Image
-            id="adminImg"
-            src="./img/admin.png"
-            animation={"role 1s"}
-            transition={"0.3s"}
-            display={role === "admin" ? "block" : "none"}
-          />
+      <VStack h={"100%"} justify={"center"} mt={20}>
+        <Text
+          fontWeight={800}
+          fontSize={[32, 42, 48]}
+          textAlign={"center"}
+          px={8}
+          mt={[4, null, 0]}
+          lineHeight={1.1}
+          color={"p.500"}
+        >
+          Let's Goooo!
+        </Text>
 
-          <Image
-            id="cashierImg"
-            src="./img/cashier.png"
-            transition={"0.3s"}
-            animation={"role 1s"}
-            display={role === "cashier" ? "block" : "none"}
-          />
-        </HStack>
-
-        <Box mt={2} w={"100%"}>
-          <Text fontWeight={600}>Role</Text>
-          <HStack
-            mb={4}
-            gap={1}
-            p={1}
-            w={"100%"}
-            borderRadius={8}
-            border={"1px solid var(--divider2)"}
-            position={"relative"}
-          >
-            <HStack
-              id="adminRole"
+        <SimpleGrid
+          columns={[1, 1, 2]}
+          gap={[4, 4, 8]}
+          // maxW={"1080px"}
+          mx={"auto"}
+          p={[6, 8]}
+        >
+          <HStack>
+            <Image
+              id="adminImg"
+              src="./img/admin.png"
+              animation={"role 1s"}
               transition={"0.3s"}
-              onClick={() => {
-                setRole("admin");
-              }}
-              w={"50%"}
-              justify={"center"}
-              borderRadius={6}
+              mb={[4, null, 0]}
+              display={role === "admin" ? "block" : "none"}
+            />
+
+            <Image
+              id="cashierImg"
+              src="./img/cashier.png"
+              transition={"0.3s"}
+              animation={"role 1s"}
+              display={role === "cashier" ? "block" : "none"}
+            />
+          </HStack>
+
+          <Box mt={2} w={"100%"}>
+            <Text fontWeight={600}>Role</Text>
+            <HStack
+              mb={4}
+              gap={1}
               p={1}
-              fontWeight={800}
-              cursor={"pointer"}
-              color={role === "admin" ? "white" : ""}
-              bg={role === "admin" ? "p.500" : ""}
+              w={"100%"}
+              borderRadius={8}
+              border={"1px solid var(--divider2)"}
+              position={"relative"}
             >
-              <Text fontSize={14}>ADMIN</Text>
+              <HStack
+                id="adminRole"
+                transition={"0.3s"}
+                onClick={() => {
+                  setRole("admin");
+                }}
+                w={"50%"}
+                justify={"center"}
+                borderRadius={6}
+                p={1}
+                fontWeight={800}
+                cursor={"pointer"}
+                color={role === "admin" ? "white" : ""}
+                bg={role === "admin" ? "p.500" : ""}
+              >
+                <Text fontSize={14}>ADMIN</Text>
+              </HStack>
+
+              <HStack
+                id="cashierRole"
+                transition={"0.3s"}
+                onClick={() => {
+                  setRole("cashier");
+                }}
+                w={"50%"}
+                justify={"center"}
+                borderRadius={6}
+                p={1}
+                fontWeight={800}
+                cursor={"pointer"}
+                color={role === "cashier" ? "white" : ""}
+                bg={role === "cashier" ? "p.500" : ""}
+              >
+                <Text fontSize={14}>CASHIER</Text>
+              </HStack>
+            </HStack>
+            <Text fontWeight={600}>Username/E-mail</Text>
+            <Input
+              mb={4}
+              className="input"
+              placeholder="sulenq or sulenq@email.com"
+              name="username"
+              onChange={handleInputChange}
+              value={signinData?.username}
+            />
+            <Text fontWeight={600}>Password</Text>
+            <Input
+              mb={4}
+              type="password"
+              className="input"
+              placeholder="type your password"
+              name="password"
+              onChange={handleInputChange}
+              value={signinData?.password}
+            />
+            <HStack justify={"space-between"} my={2}>
+              <Checkbox colorScheme="ap">
+                <Text fontSize={14}>Remember Me</Text>
+              </Checkbox>
+              <Link to="">
+                <Text fontSize={14} color={"p.500"}>
+                  Forgot password?
+                </Text>
+              </Link>
             </HStack>
 
-            <HStack
-              id="cashierRole"
-              transition={"0.3s"}
-              onClick={() => {
-                setRole("cashier");
-              }}
-              w={"50%"}
-              justify={"center"}
-              borderRadius={6}
-              p={1}
-              fontWeight={800}
-              cursor={"pointer"}
-              color={role === "cashier" ? "white" : ""}
-              bg={role === "cashier" ? "p.500" : ""}
+            <Button
+              onClick={handleSignin}
+              className="btn bnw"
+              w={"100%"}
+              colorScheme="bnw"
+              borderRadius={"full"}
+              my={4}
             >
-              <Text fontSize={14}>CASHIER</Text>
+              SIGN IN
+            </Button>
+            <HStack fontSize={14} gap={1}>
+              <Text>Do not have an account?</Text>
+              <Link to="/signup">
+                <Text color={"p.500"}>sign up here</Text>
+              </Link>
             </HStack>
-          </HStack>
-          <Text fontWeight={600}>Username/E-mail</Text>
-          <Input
-            mb={4}
-            className="input"
-            placeholder="sulenq or sulenq@email.com"
-            name="username"
-            onChange={handleInputChange}
-            value={signinData?.username}
-          />
-          <Text fontWeight={600}>Password</Text>
-          <Input
-            mb={4}
-            type="password"
-            className="input"
-            placeholder="type your password"
-            name="password"
-            onChange={handleInputChange}
-            value={signinData?.password}
-          />
-          <HStack justify={"space-between"} my={2}>
-            <Checkbox colorScheme="ap">
-              <Text fontSize={14}>Remember Me</Text>
-            </Checkbox>
-            <Link to="">
-              <Text fontSize={14} color={"p.500"}>
-                Forgot password?
-              </Text>
-            </Link>
-          </HStack>
-          
-          <Button
-            onClick={handleSignin}
-            className="btn bnw"
-            w={"100%"}
-            colorScheme="bnw"
-            borderRadius={"full"}
-            my={4}
-          >
-            SIGN IN
-          </Button>
-          <HStack fontSize={14} gap={1}>
-            <Text>Do not have an account?</Text>
-            <Link to="/signup">
-              <Text color={"p.500"}>sign up here</Text>
-            </Link>
-          </HStack>
-        </Box>
-      </SimpleGrid>
-    </Center>
+          </Box>
+        </SimpleGrid>
+      </VStack>
+    </VStack>
   );
 }

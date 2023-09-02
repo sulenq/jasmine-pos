@@ -22,12 +22,12 @@ export default function LandingPage() {
         // size={"sm"}
         fontSize={20}
         position={"absolute"}
-        top={"8px"}
-        right={"8px"}
+        top={"10px"}
+        right={"16px"}
       />
 
       <HStack p={4}>
-        <Image src="./logoTransparent.png" w={"18px"} />
+        <Image src="./logo.svg" w={"18px"} />
         <Text fontSize={20} color={"p.500"} fontWeight={800}>
           Jasmine POS
         </Text>
@@ -46,7 +46,7 @@ export default function LandingPage() {
               position={"relative"}
             >
               <Image
-                src={"./img/landing/logo.svg"}
+                src={"./logo.svg"}
                 w={"140px"}
                 zIndex={99}
                 animation={"slow-bounce 3800ms infinite"}
